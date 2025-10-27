@@ -24,7 +24,7 @@ void inserir_fila(fila filaLabirinto, ponto p, int tamanhoFila); //insere um nov
 ponto remover_fila(fila filaLabirinto, int tamanhoFila); //remove um ponto da fila
 int fila_vazia(fila filaLabirinto); //verifica se a fila esta vazia
 void liberar_fila(fila filaLabirinto); //libera toda a memoria alocada na heap pela fila
-void buscaPorLargura_labirinto(char **labirinto, int **volumeSala, int dimensaoGrid); //realiza a Busca em Largura na fila
+void buscaEmLargura_labirinto(char **labirinto, int **volumeSala, int dimensaoGrid); //realiza a Busca em Largura na fila
 
 int main() {
     int dimensaoGrid;
@@ -43,7 +43,7 @@ int main() {
         }
         getchar();
     }
-    buscaPorLargura_labirinto(labirinto, volumeSala, dimensaoGrid);
+    buscaEmLargura_labirinto(labirinto, volumeSala, dimensaoGrid);
     for (int y = 0; y < dimensaoGrid; y++) {
         for (int x = 0; x < dimensaoGrid; x++) {
             printf("%d ", volumeSala[y][x]);
@@ -102,7 +102,7 @@ void liberar_fila(fila filaLabirinto) {
     free(filaLabirinto); //libera memoria da cabeca da fila
 }
 
-void buscaPorLargura_labirinto(char **labirinto, int **volumeSala, int dimensaoGrid) {
+void buscaEmLargura_labirinto(char **labirinto, int **volumeSala, int dimensaoGrid) {
     fila filaLabirinto = criar_fila(dimensaoGrid * dimensaoGrid);
     if (labirinto[0][0] != 'X') {
         ponto inicio = {0,0};

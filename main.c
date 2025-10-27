@@ -7,7 +7,6 @@ struct ponto {
     int x;
     int y;
 };
-
 typedef struct ponto ponto;
 
 //struct de uma fila circular usada para fazer a Busca em Largura
@@ -16,7 +15,6 @@ struct fila {
     int final; 
     ponto *pontos; 
 };
-
 typedef struct fila *fila;
 
 fila criar_fila(int tamanhoFila); //cria uma fila de tamanho definido pelo usuário
@@ -116,7 +114,7 @@ void buscaEmLargura_labirinto(char **labirinto, int **volumeSala, int dimensaoGr
     inserir_fila(filaLabirinto, inicio, dimensaoGrid * dimensaoGrid); //coloca o ponto de inicio na fila
     volumeSala[0][0] = 0; //distancia/volume do ponto inicial (0,0) eh sempre 0
     ponto movimentos[4] = {{-1,0}, {1,0}, {0,-1}, {0,1}}; //array com todos os movimentos possiveis de um ponto (excete diagonais)
-    
+
     while (!fila_vazia(filaLabirinto)) { //itera enquanto a fila estiver pontos ainda
         ponto pontoAtual = remover_fila(filaLabirinto, dimensaoGrid * dimensaoGrid); //pega o prox ponto da fila para tirar (FIFO)
         for (int i = 0; i < 4; i++) { //for para percorrer os 4 pontos vizinhos do ponto atual

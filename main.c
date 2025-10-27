@@ -12,9 +12,9 @@ typedef struct ponto ponto;
 
 //struct de uma fila circular usada para fazer a Busca em Largura
 struct fila {
-    int inicio; //início representa a posição do primeiro elemento
-    int final; //final representa a posição onde será posto o próximo elemento
-    ponto *pontos; //representa um vetor de pontos na fila
+    int inicio;
+    int final; 
+    ponto *pontos; 
 };
 
 typedef struct fila *fila;
@@ -103,7 +103,7 @@ void liberar_fila(fila filaLabirinto) {
 }
 
 void buscaPorLargura_labirinto(char **labirinto, int **volumeSala, int dimensaoGrid) {
-    filaLabirinto = criar_fila(dimensaoGrid * dimensaoGrid);
+    fila filaLabirinto = criar_fila(dimensaoGrid * dimensaoGrid);
     if (labirinto[0][0] != 'X') {
         ponto inicio = {0,0};
         inserir_fila(filaLabirinto, inicio, dimensaoGrid * dimensaoGrid);
